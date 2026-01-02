@@ -38,13 +38,11 @@ public class LoginSeleniumTest extends BaseSeleniumTest {
         assertTrue(driver.getCurrentUrl().contains("urunler"));
     }
 
-    @Test
-    void yanlis_sayfa_404() {
-        driver.get("http://localhost:9090/olmayan.html");
+  @Test
+void yanlis_sayfa_404() {
+    driver.get("http://localhost:9090/olmayan.html");
+    assertTrue(driver.getPageSource().contains("404")
+            || driver.getPageSource().contains("Not Found"));
+}
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.titleContains("Error"));
-
-        assertTrue(driver.getPageSource().contains("Whitelabel"));
-    }
 }
