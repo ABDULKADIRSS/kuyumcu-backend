@@ -13,7 +13,7 @@ public class UrunSepetSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void urunler_sayfasi_acilir() {
-        driver.get("http://localhost:8080/urunler.html");
+        driver.get("http://localhost:9090/urunler.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
