@@ -23,7 +23,7 @@ public class UrunSepetSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void urun_sepete_eklenir() {
-        driver.get("http://localhost:8080/urunler.html");
+        driver.get("http://localhost:9090/urunler.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.id("sepeteEkleBtn"))).click();
@@ -33,7 +33,7 @@ public class UrunSepetSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void sepete_gidilir() {
-        driver.get("http://localhost:8080/urunler.html");
+        driver.get("http://localhost:9090/urunler.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.id("sepetGit"))).click();
@@ -44,7 +44,7 @@ public class UrunSepetSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void sepet_sayfasi_acilir() {
-        driver.get("http://localhost:8080/sepet.html");
+        driver.get("http://localhost:9090/sepet.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
