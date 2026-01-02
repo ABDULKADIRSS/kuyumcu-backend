@@ -13,7 +13,7 @@ public class SiparisSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void siparis_olusturulur() {
-        driver.get("http://localhost:8080/sepet.html");
+        driver.get("http://localhost:9090/sepet.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.id("siparisBtn"))).click();
