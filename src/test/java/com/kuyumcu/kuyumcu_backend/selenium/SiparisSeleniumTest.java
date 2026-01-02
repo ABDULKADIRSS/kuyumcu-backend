@@ -24,7 +24,7 @@ public class SiparisSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void siparis_basarili() {
-        driver.get("http://localhost:8080/siparis.html");
+        driver.get("http://localhost:9090/siparis.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
@@ -34,7 +34,7 @@ public class SiparisSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void alisverise_devam() {
-        driver.get("http://localhost:8080/siparis.html");
+        driver.get("http://localhost:9090/siparis.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.id("devamBtn"))).click();
