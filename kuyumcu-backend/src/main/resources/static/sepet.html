@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sepet</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Sepetim</h2>
+    <p>Altın Yüzük (1 adet)</p>
+
+    <button id="siparisBtn" onclick="siparis()">Sipariş Oluştur</button>
+</div>
+
+<script>
+function siparis() {
+    window.location.href = "siparis.html";
+}
+</script>
+
+</body>
+</html>

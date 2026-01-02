@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ürünler</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Ürünler</h2>
+    <p><strong>Altın Yüzük</strong></p>
+
+    <button id="sepeteEkleBtn" onclick="sepeteEkle()">Sepete Ekle</button>
+
+    <p id="sonuc"></p>
+
+    <a href="sepet.html">Sepete Git</a>
+</div>
+
+<script>
+function sepeteEkle() {
+    document.getElementById("sonuc").innerText = "Sepete eklendi";
+}
+</script>
+
+</body>
+</html>

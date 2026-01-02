@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ürünler</title>
+</head>
+<body>
+
+<h1>Ürünler</h1>
+
+<div>
+    <p id="urunAdi">Altın Yüzük</p>
+    <button id="sepeteEkleBtn" onclick="sepeteEkle()">Sepete Ekle</button>
+</div>
+
+<br>
+<a href="sepet.html" id="sepetGit">Sepete Git</a>
+
+<p id="mesaj"></p>
+
+<script>
+    function sepeteEkle() {
+        document.getElementById("mesaj").innerText = "Sepete eklendi";
+    }
+</script>
+
+</body>
+</html>

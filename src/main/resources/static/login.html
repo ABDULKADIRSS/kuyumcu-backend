@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<h1>Giriş Yap</h1>
+
+<input id="email" type="text" placeholder="Email">
+<br><br>
+<input id="sifre" type="password" placeholder="Şifre">
+<br><br>
+
+<button id="loginBtn" onclick="giris()">Giriş Yap</button>
+
+<p id="mesaj"></p>
+
+<script>
+    function giris() {
+        document.getElementById("mesaj").innerText = "Login başarılı";
+        window.location.href = "urunler.html";
+    }
+</script>
+
+</body>
+</html>
