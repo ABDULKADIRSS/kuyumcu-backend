@@ -23,7 +23,7 @@ public class LoginSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void login_basarili() {
-        driver.get("http://localhost:8080/login.html");
+        driver.get("http://localhost:9090/login.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -40,7 +40,7 @@ public class LoginSeleniumTest extends BaseSeleniumTest {
 
     @Test
     void yanlis_sayfa_404() {
-        driver.get("http://localhost:8080/olmayan.html");
+        driver.get("http://localhost:9090/olmayan.html");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.titleContains("Error"));
