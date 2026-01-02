@@ -3,23 +3,34 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/ABDULKADIRSS/kuyumcu-backend.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'mvn clean package -DskipTests'
             }
         }
 
-        stage('Test') {
+        stage('Start Application') {
+            steps {
+                bat '''
+                start cmd /c "java -jar target\\kuyumcu-backend-0.0.1-SNAPSHOT.jar"
+                timeout /t 15
+                '''
+            }
+        }
+
+        stage('Selenium Tests') {
             steps {
                 bat 'mvn test'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'TÜM TESTLER BAŞARILI'
+        }
+        failure {
+            echo 'SELENIUM HATASI VAR'
         }
     }
 }
