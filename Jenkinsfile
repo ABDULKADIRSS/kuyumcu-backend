@@ -12,8 +12,9 @@ pipeline {
         stage('Start Application') {
             steps {
                 bat '''
-                start cmd /c "java -jar target\\kuyumcu-backend-0.0.1-SNAPSHOT.jar"
-                timeout /t 15
+                echo Starting Spring Boot...
+                start "" java -jar target\\kuyumcu-backend-0.0.1-SNAPSHOT.jar
+                ping 127.0.0.1 -n 16 > nul
                 '''
             }
         }
