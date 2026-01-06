@@ -29,8 +29,9 @@ pipeline {
             steps {
                 bat '''
                 echo Deploying application with Docker...
-                docker compose down
-                docker compose up -d --build
+
+                "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" compose down
+                "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" compose up -d --build
                 '''
             }
         }
