@@ -5,7 +5,7 @@ services:
     build: .
     container_name: kuyumcu-backend
     ports:
-      - "9090:9090"
+      - "8081:9090"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5432/kuyumcu
       SPRING_DATASOURCE_USERNAME: postgres
