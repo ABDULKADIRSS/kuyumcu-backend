@@ -24,14 +24,24 @@ pipeline {
                 bat 'mvn test'
             }
         }
+
+        stage('Deploy with Docker') {
+            steps {
+                bat '''
+                echo Deploying application with Docker...
+                docker-compose down
+                docker-compose up -d --build
+                '''
+            }
+        }
     }
 
     post {
         success {
-            echo 'TÜM TESTLER BAŞARILI'
+            echo 'CI/CD BAŞARIYLA TAMAMLANDI'
         }
         failure {
-            echo 'SELENIUM HATASI VAR'
+            echo 'PIPELINE HATASI VAR'
         }
     }
 }
