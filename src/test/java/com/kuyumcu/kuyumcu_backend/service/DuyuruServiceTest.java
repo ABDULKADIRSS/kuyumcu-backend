@@ -22,7 +22,6 @@ class DuyuruServiceTest {
     DuyuruService duyuruService;
 
     @Test
-    @Tag("unit")
     void duyuruEkle_basarili() {
         Duyuru d = new Duyuru();
         d.setBaslik("Test");
