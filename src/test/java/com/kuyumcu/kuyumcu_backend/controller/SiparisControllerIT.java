@@ -1,5 +1,6 @@
 package com.kuyumcu.kuyumcu_backend.controller;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Tag("integration")
 class SiparisControllerIT {
 
     @Autowired
@@ -40,7 +42,7 @@ class SiparisControllerIT {
         mockMvc.perform(post("/api/siparisler")
                 .param("sepetId", "99999")
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isInternalServerError());
+                .andExpect(status().isNotFound());
     }
 
     
@@ -48,7 +50,7 @@ class SiparisControllerIT {
     @Test
     void siparisIptal_bulunamadi_hata() throws Exception {
         mockMvc.perform(post("/api/siparisler/99999/iptal"))
-                .andExpect(status().isInternalServerError());
+                .andExpect(status().isNotFound());
     }
 
     
