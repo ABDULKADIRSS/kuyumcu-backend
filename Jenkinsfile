@@ -3,18 +3,36 @@ pipeline {
 
     stages {
 
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                bat 'mvn clean test -Dtest=*ServiceTest'
+            }
+        }
+
+        stage('Integration Tests') {
+            steps {
+                bat 'mvn verify -Dtest=*IT'
+            }
+        }
+
         stage('Build') {
             steps {
                 bat 'mvn clean package -DskipTests'
             }
         }
 
-        stage('Start Application (Local)') {
+        stage('Start Application') {
             steps {
                 bat '''
-                echo Starting Spring Boot locally...
+                echo Starting Spring Boot...
                 start "" java -jar target\\kuyumcu-backend-0.0.1-SNAPSHOT.jar
-                ping 127.0.0.1 -n 20 > nul
+                ping 127.0.0.1 -n 16 > nul
                 '''
             }
         }
@@ -25,20 +43,10 @@ pipeline {
             }
         }
 
-        stage('Stop Local Application') {
-            steps {
-                bat '''
-                echo Stopping local Spring Boot...
-                for /f "tokens=5" %%a in ('netstat -ano ^| findstr :9090') do taskkill /PID %%a /F
-                '''
-            }
-        }
-
         stage('Deploy with Docker') {
             steps {
                 bat '''
                 echo Deploying application with Docker...
-
                 "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" compose down
                 "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" compose up -d --build
                 '''
